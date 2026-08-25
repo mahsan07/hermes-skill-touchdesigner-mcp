@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/overview.svg" alt="Visual overview of TouchDesigner MCP" width="100%">
+  <img src="assets/system-map.svg" alt="Detailed system map for TouchDesigner MCP" width="100%">
 </p>
 
 # TouchDesigner MCP
@@ -26,20 +26,34 @@ The shared `hermes-skill-` prefix identifies this as a portable Hermes workflow 
 | What is delivered? | A skill contract, examples, safety guidance, release checks, and rendered SVG diagrams. |
 | Runtime status | Documentation-first reference package; connect it to the tools available in your own environment. |
 
-## How it works
+## Visual system map
 
-<p align="center">
-  <img src="assets/workflow.svg" alt="Step-by-step workflow for TouchDesigner MCP" width="760">
-</p>
+The diagram below is specific to this capability. It shows the real components and artifacts involved rather than a generic agent loop.
 
-1. Translate the request into a bounded creative brief
-2. Inspect supplied assets and usage constraints
-3. Choose the appropriate format and production path
-4. Create a first reviewable artifact
-5. Check legibility, fidelity, and export behavior
-6. Deliver the artifact with revision guidance
+![TouchDesigner MCP system map](assets/system-map.svg)
 
-See [How it works](docs/HOW-IT-WORKS.md) for the detailed walkthrough, decision points, and verification checklist.
+## Operation sequence
+
+![TouchDesigner MCP actor and data sequence](assets/operation-sequence.svg)
+
+1. Confirm the running TouchDesigner instance
+2. Inspect existing operators paths and connections
+3. Create the smallest operator network
+4. Set parameters and wire dependencies
+5. Execute approved Python or pulses
+6. Inspect viewer output and runtime errors
+
+See [How it works](docs/HOW-IT-WORKS.md) for the component-by-component walkthrough and evidence model.
+
+## Example visual output
+
+![Illustrative output produced by TouchDesigner MCP](assets/example-output.svg)
+
+This is an explanatory mockup of the output shape—not fabricated proof that a live run occurred. The labels show the information a real result should expose for review.
+
+## Decision and stop conditions
+
+![Decision guide for TouchDesigner MCP](assets/decision-guide.svg)
 
 ## Inputs
 
@@ -61,10 +75,6 @@ More scenarios and expected results are in [Examples](docs/EXAMPLES.md).
 
 ## Safety and trust model
 
-<p align="center">
-  <img src="assets/safety-boundary.svg" alt="Safety and approval boundaries for TouchDesigner MCP" width="900">
-</p>
-
 This workflow may create or change artifacts, so consequential actions require a preview and explicit authorization. It must stop when ownership, authorization, target state, or publication safety is ambiguous. Never place credentials, private endpoints, personal data, or environment-specific secrets in the skill package or its evidence.
 
 Read [SAFETY.md](SAFETY.md) and [SECURITY.md](SECURITY.md) before connecting the workflow to real accounts, devices, repositories, or production data.
@@ -85,7 +95,10 @@ Read [SAFETY.md](SAFETY.md) and [SECURITY.md](SECURITY.md) before connecting the
 | `docs/HOW-IT-WORKS.md` | Expanded walkthrough with diagrams and verification points. |
 | `docs/EXAMPLES.md` | Realistic safe, review-only, and stop-condition scenarios. |
 | `docs/RELEASE.md` | Checks to complete before publishing a revision. |
-| `assets/*.svg` | Accessible, GitHub-rendered visual explanations. |
+| `assets/system-map.svg` | Capability-specific block, graph, stack, loop, or canvas architecture. |
+| `assets/operation-sequence.svg` | Actor and data sequence using the skill’s real stages. |
+| `assets/example-output.svg` | Illustrated mockup of the artifact or interface a run should produce. |
+| `assets/decision-guide.svg` | Capability-specific decisions, approval boundaries, and stop states. |
 | `tests/README.md` | Manual contract and package validation guidance. |
 | `SAFETY.md` / `SECURITY.md` | Operational and disclosure boundaries. |
 
