@@ -1,0 +1,85 @@
+{
+  "protocol_version": "0.1",
+  "skill": {
+    "id": "hermes-skill-touchdesigner-mcp",
+    "display_name": "TouchDesigner MCP",
+    "description": "Control a running TouchDesigner instance through MCP to create operators, set parameters, wire networks, and execute Python."
+  },
+  "task_profile": {
+    "category": "creative",
+    "architecture": "graph",
+    "artifact": "node",
+    "inputs": [
+      "Visual brief",
+      "TouchDesigner process"
+    ],
+    "outputs": [
+      "Rendered realtime output",
+      "moviefilein1",
+      "level1",
+      "composite1",
+      "out1"
+    ]
+  },
+  "modules": {
+    "memory": {
+      "strategy": "entity_relationship_memory",
+      "responsibility": "Retain visual brief plus decisions, observations, and verification evidence needed to resume safely."
+    },
+    "planning": {
+      "strategy": "dependency_and_path_traversal",
+      "responsibility": "Transform touchdesigner process into the ordered, bounded stages defined by this skill."
+    },
+    "action": {
+      "strategy": "brief_generate_render_inspect_export",
+      "responsibility": "Advance the workflow through operator network while preserving stop conditions and user authority."
+    },
+    "capability": {
+      "strategy": "task_conditioned_minimum_capability_set",
+      "responsibility": "Expose only the production and rendering capabilities needed for the requested artifact and format."
+    }
+  },
+  "execution": {
+    "stages": [
+      "Confirm the running TouchDesigner instance",
+      "Inspect existing operators paths and connections",
+      "Create the smallest operator network",
+      "Set parameters and wire dependencies",
+      "Execute approved Python or pulses",
+      "Inspect viewer output and runtime errors"
+    ],
+    "gates": [
+      "scope_and_authority_confirmed",
+      "capability_and_dependency_preflight",
+      "consequential_action_previewed_when_applicable",
+      "output_reopened_and_verified"
+    ]
+  },
+  "verification": {
+    "evidence": [
+      "moviefilein1",
+      "level1",
+      "composite1",
+      "out1"
+    ],
+    "metrics": [
+      "task_success",
+      "verification_pass_rate",
+      "tool_error_rate",
+      "repair_count",
+      "latency_ms",
+      "estimated_cost_usd"
+    ]
+  },
+  "failure_policy": {
+    "max_repairs": 2,
+    "schema_error": "repair_then_stop",
+    "permission_error": "stop_without_retry",
+    "verification_failure": "report_incomplete"
+  },
+  "maturity": {
+    "level": "executable_contract",
+    "runtime_scope": "validation_and_dry_run_planning",
+    "claim_boundary": "This repository validates and plans the harness contract; it does not claim live service execution or benchmark gains without a connected adapter and measured evidence."
+  }
+}

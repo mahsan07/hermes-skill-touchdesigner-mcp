@@ -1,0 +1,3 @@
+{
+  "task": "Use TouchDesigner MCP to control a running touchdesigner instance through mcp to create operators, set parameters, wire networks, and execute python and return verification evidence."
+}
